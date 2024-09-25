@@ -1,7 +1,0 @@
-.env
-node_modules/
-package-lock.json
-
-SECRET_NUMBER=13
-PASSWORD=12345
-
