@@ -28,7 +28,7 @@ const blogPostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  tags: [String], // Array of strings for tags
+  tags: [String], 
 });
 
 module.exports = mongoose.model('BlogPost', blogPostSchema);

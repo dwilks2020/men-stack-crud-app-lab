@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>All Blog Posts</title>
+    
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    Hello world!
-    
+    <header>
+        <h1>Community News blog</h1>
+
+        <div></div>
+    </header>
+    <a href="/blogs/new">Create New Blog Post</a>
+
+    <main>
+
+        <% if (blogs && blogs.length > 0) { %>
+            <ul>
+                <% blogs.forEach(blog => { %>
+                    <li>
+                        <h2><a href="/blogs/<%= blog._id %>"><%= blog.title %></a></h2>
+                        <p><strong>Author:</strong> <%= blog.author || 'Unknown' %></p>
+                        <p><strong>Created At:</strong> <%= blog.createdAt.toLocaleDateString() %></p>
+                        <a href="/blogs/<%= blog._id %>/edit">Edit</a> | 
+                        <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No blog posts available.</p>
+        <% } %>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+</html>
+
+
+
+  <footer>
+  </footer>
 </body>
 </html>
